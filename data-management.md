@@ -17,7 +17,7 @@ Create the following indices. Each index should be created with 1 primary and 0 
 * leads_b2c-000001
 * sales_b2c-000001
 
-<solution>
+<details>
 
 ```
 PUT /leads_b2b-000001
@@ -45,7 +45,7 @@ PUT /sales_b2c-000001
 }
 ```
 
-</solution>
+</details>
 
 ## Get index settings
 
@@ -61,14 +61,14 @@ PUT /sales_b2c-000001
 
 Define an dynamic template that for all strings ending with `_es` assigns a special `spanish` analyzer. For the remaining strings, apply `english` analyzer.
 
-<solution>
+<details>
 
 ```
 
 
 ```
 
-</solution>
+</details>
 
 ----
 
