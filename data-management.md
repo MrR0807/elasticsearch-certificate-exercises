@@ -63,6 +63,20 @@ GET /sales_b2c-000001/_alias
 
 ## Update an index
 
+Increase the replica count to 1.
+
+<details>
+
+```
+PUT /leads_b2b-000001/_settings
+{
+  "settings": {
+    "number_of_replicas": 1
+  }
+}
+```
+
+</details>
 
 
 # Define and use an index template
