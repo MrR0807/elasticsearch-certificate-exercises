@@ -17,7 +17,7 @@ Create the following indices. Each index should be created with 1 primary and 0 
 * leads_b2c-000001
 * sales_b2c-000001
 
-<answer>
+<details>
 
 ```
 PUT /leads_b2b-000001
@@ -45,7 +45,7 @@ PUT /sales_b2c-000001
 }
 ```
 
-</answer>
+</details>
 
 ## Get index settings
 
