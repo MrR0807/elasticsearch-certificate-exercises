@@ -8,9 +8,26 @@
 
 # Define and index
 
+[Index REST API](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/indices.html).
+
+## Create an index
+
+```
+POST /
+
+```
+
+## Update an index
+
+
+
 # Define and use an index template
 
 # Define and use a dynamic template
+
+Define an dynamic template that for all strings ending with `_es` assigns a special `spanish` analyzer. For the remaining strings, apply `english` analyzer.
+
+
 
 # Define an Index Lifecycle Management policy for a time-series index
 
@@ -23,6 +40,4 @@
 ## Delete multiple indexes
 
 ## Delete all indexes
-
-## Update and index
 
