@@ -1,10 +1,10 @@
 # Objectives
 
-Define an index that satisfies a given set of requirements
-Define and use an index template for a given pattern that satisfies a given set of requirements
-Define and use a dynamic template that satisfies a given set of requirements
-Define an Index Lifecycle Management policy for a time-series index
-Define an index template that creates a new data stream
+* Define an index that satisfies a given set of requirements
+* Define and use an index template for a given pattern that satisfies a given set of requirements
+* Define and use a dynamic template that satisfies a given set of requirements
+* Define an Index Lifecycle Management policy for a time-series index
+* Define an index template that creates a new data stream
 
 # Define and index
 
@@ -15,3 +15,14 @@ Define an index template that creates a new data stream
 # Define an Index Lifecycle Management policy for a time-series index
 
 # Define an index template that creates a new data stream
+
+# Other actions
+
+## Delete an index
+
+## Delete multiple indexes
+
+## Delete all indexes
+
+## Update and index
+
