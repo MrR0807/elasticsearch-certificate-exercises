@@ -12,6 +12,12 @@
 
 ## Create an index
 
+Create the following indices. Each index should be created with 1 primary and 0 replica shards:
+* leads_b2b-000001
+* leads_b2c-000001
+* sales_b2c-000001
+
+
 ```
 POST /
 
@@ -25,13 +31,19 @@ POST /
 
 # Define and use a dynamic template
 
-## Define an dynamic template that for all strings ending with `_es` assigns a special `spanish` analyzer. For the remaining strings, apply `english` analyzer.
+Define an dynamic template that for all strings ending with `_es` assigns a special `spanish` analyzer. For the remaining strings, apply `english` analyzer.
 
-<details>
+<solution>
 
-hello
+```
 
-</details>
+
+```
+
+</solution>
+
+----
+
 
 
 
