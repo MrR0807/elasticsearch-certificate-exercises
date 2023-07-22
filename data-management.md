@@ -49,6 +49,16 @@ PUT /sales_b2c-000001
 
 ## Get index settings
 
+<details>
+
+```
+GET /sales_b2c-000001
+GET /sales_b2c-000001/_settings
+GET /sales_b2c-000001/_mapping
+GET /sales_b2c-000001/_alias
+```
+
+</details>
 
 
 ## Update an index
