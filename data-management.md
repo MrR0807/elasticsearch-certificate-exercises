@@ -17,11 +17,37 @@ Create the following indices. Each index should be created with 1 primary and 0 
 * leads_b2c-000001
 * sales_b2c-000001
 
-
+<solution>
 ```
-POST /
+PUT /leads_b2b-000001
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  }
+}
 
+PUT /leads_b2c-000001
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  }
+}
+
+PUT /sales_b2c-000001
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  }
+}
 ```
+</solution>
+
+## Get index settings
+
+
 
 ## Update an index
 
