@@ -18,6 +18,7 @@ Create the following indices. Each index should be created with 1 primary and 0 
 * sales_b2c-000001
 
 <solution>
+
 ```
 PUT /leads_b2b-000001
 {
@@ -43,6 +44,7 @@ PUT /sales_b2c-000001
   }
 }
 ```
+
 </solution>
 
 ## Get index settings
