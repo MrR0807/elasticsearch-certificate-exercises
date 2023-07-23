@@ -182,9 +182,56 @@ POST /_index_template/_simulate_index/memory-something
 
 # Define and use a dynamic template
 
+Define a dynamic template that changes all new added fields starting with `ip_` to type `ip`. Also, all strings ending with `es` having `spanish` analyzer and all strings ending with `_en` - `english` analyzer.
 
+```
+PUT my-index
+{
+  "mappings": {
+    "properties": {
+      "id_long": {
+        "type": "long"
+      },
+      "name": {
+        "type": "text"
+      }
+    },
+    "dynamic_templates": [
+      {
+        "ip-strings-to-ip-type": {
+          "match_mapping_type": "string",
+          "match": "ip_*",
+          "mapping": {
+            "type": "ip"
+          }
+        }
+      },
+      {
+        "es-analyzer": {
+          "match_mapping_type": "string",
+          "match": "*_es",
+          "mapping": {
+            "analyzer": "spanish"
+          }
+        }
+      },
+      {
+        "en-analyzer": {
+          "match_mapping_type": "string",
+          "match": "*_en",
+          "mapping": {
+            "analyzer": "english"
+          }
+        }
+      }
+    ]
+  }
+}
+```
 
 ----
+
+
 
 
 
