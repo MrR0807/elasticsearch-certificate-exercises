@@ -175,6 +175,16 @@ Simulate index API
 POST /_index_template/_simulate_index/memory-something
 ```
 
+---
+
+Create an index with default `english` analyzer.
+
+```
+
+
+
+```
+
 
 # Define and use a dynamic template
 
