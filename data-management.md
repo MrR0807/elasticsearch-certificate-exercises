@@ -238,6 +238,9 @@ PUT my-index
 
 # Define an Index Lifecycle Management policy for a time-series index
 
+Trying to do with date time math fails due to Elastic bug: https://github.com/elastic/kibana/issues/128701.
+
+
 Short reminder.
 1. Create a lifecycle policy that defines the appropriate phases and actions. See [Create a lifecycle policy above](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/getting-started-index-lifecycle-management.html#manage-time-series-data-without-data-streams:~:text=and%20actions.%20See-,Create%20a%20lifecycle%20policy,-above).
 2. [Create an index template](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/getting-started-index-lifecycle-management.html#manage-time-series-data-without-data-streams:~:text=lifecycle%20policy%20above.-,Create%20an%20index%20template,-to%20apply%20the) to apply the policy to each new index.
