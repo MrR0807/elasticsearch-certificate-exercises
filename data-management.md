@@ -238,6 +238,34 @@ PUT my-index
 
 # Define an Index Lifecycle Management policy for a time-series index
 
+Store audit data in a daily index with the format audit-MM-DD-YYY. Index lifecycle management (ILM) policy for the audit data as follows:
+* Data is first ingested as hot data.
+* After 7 Days, the data is converted to cold data with a frozen and readonly index.
+* After 365 days, the data is deleted.
+
+Once the ILM policy is created, you need to create the audit_template index template to match any index with the naming pattern of audit-, and apply the audit_policy ILM policy. Also, because you are working on a single-node cluster, the audit_template index template should be configured to create indices with 1 primary and 0 replica shards in order to maintain a green cluster state. Lastly, create and verify the first audit index with the current date using the audit-MM-DD-YYY format.
+
+```
+
+
+```
+
+---
+
+For example, if you are indexing metrics data from a fleet of ATMs into Elasticsearch, you might define a policy that says:
+* When the total size of the index’s primary shards reaches 50GB, roll over to a new index.
+* Move the old index into the warm phase, mark it read only, and shrink it down to a single shard.
+* After 7 days, move the index into the cold phase and move it to less expensive hardware.
+* Delete the index once the required 30 day retention period is reached.
+
+```
+
+
+```
+
+
+
+
 # Define an index template that creates a new data stream
 
 # Other actions
