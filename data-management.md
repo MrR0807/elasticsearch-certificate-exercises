@@ -182,16 +182,7 @@ POST /_index_template/_simulate_index/memory-something
 
 # Define and use a dynamic template
 
-Define an dynamic template that for all strings ending with `_es` assigns a special `spanish` analyzer. For the remaining strings, apply `english` analyzer.
 
-<details>
-
-```
-
-
-```
-
-</details>
 
 ----
 
