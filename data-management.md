@@ -238,6 +238,15 @@ PUT my-index
 
 # Define an Index Lifecycle Management policy for a time-series index
 
+Short reminder.
+1. Create a lifecycle policy that defines the appropriate phases and actions. See [Create a lifecycle policy above](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/getting-started-index-lifecycle-management.html#manage-time-series-data-without-data-streams:~:text=and%20actions.%20See-,Create%20a%20lifecycle%20policy,-above).
+2. [Create an index template](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/getting-started-index-lifecycle-management.html#manage-time-series-data-without-data-streams:~:text=lifecycle%20policy%20above.-,Create%20an%20index%20template,-to%20apply%20the) to apply the policy to each new index.
+3. [Bootstrap an index](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/getting-started-index-lifecycle-management.html#ilm-gs-alias-bootstrap) as the initial write index.
+4. [Verify indices are moving through the lifecycle phases](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/getting-started-index-lifecycle-management.html#ilm-gs-alias-check-progress) as expected.
+
+
+---
+
 Store audit data in a daily index with the format audit-MM-DD-YYY. Index lifecycle management (ILM) policy for the audit data as follows:
 * Data is first ingested as hot data.
 * After 7 Days, the data is converted to cold data with a frozen and readonly index.
