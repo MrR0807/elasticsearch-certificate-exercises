@@ -49,3 +49,12 @@ Define an dynamic template that for all strings ending with `_es` assigns a spec
 ```
 
 </details>
+
+
+---
+
+Get index mapping
+
+```
+GET my-index/_mapping
+```
