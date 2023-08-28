@@ -284,17 +284,54 @@ Short reminder.
 
 ---
 
-Store audit data in a daily index with the format audit-MM-DD-YYY. Index lifecycle management (ILM) policy for the audit data as follows:
+You are a cyber security analyst who is in charge of collecting and maintaining an audit log of user access changes at your company. For this, you will use Elasticsearch to store the audit data in a daily index with the format audit-MM-DD-YYY. However, you need to first configure an index lifecycle management (ILM) policy for the audit data as follows:
 * Data is first ingested as hot data.
-* After 7 Days, the data is converted to cold data with a frozen and readonly index.
+* After 7 Days, the data is converted to cold data with a readonly index.
 * After 365 days, the data is deleted.
 
 Once the ILM policy is created, you need to create the audit_template index template to match any index with the naming pattern of audit-, and apply the audit_policy ILM policy. Also, because you are working on a single-node cluster, the audit_template index template should be configured to create indices with 1 primary and 0 replica shards in order to maintain a green cluster state. Lastly, create and verify the first audit index with the current date using the audit-MM-DD-YYY format.
 
-```
+<details>
 
-
 ```
+PUT _ilm/policy/audit_policy
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {}
+      },
+      "cold": {
+        "min_age": "7d",
+        "actions": {
+         "readonly" :{}
+        }
+      },
+      "delete": {
+        "min_age": "365d",
+        "actions": {
+          "delete": {}
+        }
+      }
+    }
+  }
+}
+
+PUT _index_template/audit-template
+{
+  "index_patterns": ["audit-*"],
+  "template": {
+    "settings": {
+      "index.lifecycle.name": "audit_policy",      
+      "index.lifecycle.rollover_alias": "audit"
+    }
+  }
+}
+
+PUT audit-09-28-2023
+GET audit-*/_ilm/explain
+```
+</details>
 
 ---
 
