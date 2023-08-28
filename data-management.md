@@ -159,6 +159,7 @@ POST _index_template/template_1
 
 Create a component template and reuse it in previous exercise.
 
+<details>
 ```
 PUT _component_template/dev-env
 {
@@ -184,6 +185,7 @@ Simulate index API
 ```
 POST /_index_template/_simulate_index/memory-something
 ```
+</details>
 
 ---
 
