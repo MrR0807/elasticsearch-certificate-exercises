@@ -129,6 +129,32 @@ PUT _index_template/memory_template
 
 </details>
 
+------
+
+You need to create an index template for index containing word *cars*. It should have priority 20, and defaults fields of *created_at* and *created by*.
+
+<details>
+```
+POST _index_template/template_1
+{
+  "index_patterns": ["*cars*"],
+  "priority": 20,
+  "template": {
+    "mappings": {
+      "properties": {
+        "created_at": {
+          "type": "date"
+        },
+        "created_by": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
+```
+</details>
+
 ## Component Template
 
 Create a component template and reuse it in previous exercise.
