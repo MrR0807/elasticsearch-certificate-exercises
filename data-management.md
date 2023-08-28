@@ -83,32 +83,14 @@ PUT /leads_b2b-000001/_settings
 
 ## Index Template
 
-```
-POST _index_template/template_1
-{
-  "index_patterns": ["*cars*"],
-  "priority": 20,
-  "template": {
-    "mappings": {
-      "properties": {
-        "created_at": {
-          "type": "date"
-        },
-        "created_by": {
-          "type": "text"
-        }
-      }
-    }
-  }
-}
-```
-
 You need to create the following index templates in Elasticsearch to properly format the telemetry data indices:
 * `load` for indices that start with "load-"
 * `cpu` for indices that start with "cpu-"
 * `memory` for indices that start with "memory-"
 
 Since this is a single-node cluster, you will need to configure the index templates to create all indices with 1 primary and 0 replica shards to ensure the indices that use these templates are allocated with a green state.
+
+<details>
 
 ```
 PUT _index_template/load_template
@@ -144,6 +126,8 @@ PUT _index_template/memory_template
   }
 }
 ```
+
+</details>
 
 ## Component Template
 
