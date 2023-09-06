@@ -407,7 +407,19 @@ POST audit-something/_doc
 
 ## Delete an index
 
+```
+DELETE <index-name>
+```
+
 ## Delete multiple indexes
+
+No spaces
+```
+DELETE <index-name-1>,<index-name-2>,<index-name-3>
+```
 
 ## Delete all indexes
 
+```
+DELETE *
+```
