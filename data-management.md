@@ -191,6 +191,8 @@ POST /_index_template/_simulate_index/memory-something
 
 # Define and use a dynamic template
 
+Define a dynamic template, where all fields starting with *ip* name would be mapped to **ip** type.
+
 <details>
 
 ```
@@ -218,6 +220,7 @@ PUT leads-1
 
 Define a dynamic template that changes all new added fields starting with `ip_` to type `ip`. Also, all strings ending with `es` having `spanish` analyzer and all strings ending with `_en` - `english` analyzer.
 
+<details>
 ```
 PUT my-index
 {
@@ -262,13 +265,8 @@ PUT my-index
   }
 }
 ```
-
+</details>
 ----
-
-
-
-
-
 
 # Define an Index Lifecycle Management policy for a time-series index
 
