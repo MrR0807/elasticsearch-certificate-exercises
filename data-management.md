@@ -344,10 +344,64 @@ For example, if you are indexing metrics data from a fleet of ATMs into Elastics
 
 ```
 
-
-
-
 # Define an index template that creates a new data stream
+
+Define a new data stream, which rolls over to new index when index size reaches 1 document. Cold storage should be run after 1d. And deletion phase after 365 days.
+
+<details>
+
+```
+PUT _ilm/policy/my-policy
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_docs": 1
+          }
+        }
+      },
+      "cold": {
+        "min_age": "1d",
+        "actions": {
+          "allocate": {
+            "number_of_replicas": 0
+          }
+        }
+      },
+      "delete": {
+        "min_age": "365d",
+        "actions": {
+          "delete": {}
+        }
+      }
+    }
+  }
+}
+
+PUT _index_template/my-index-template
+{
+  "index_patterns": ["audit-*"],
+  "data_stream": {},
+  "template": {
+     "settings": {
+       "index.lifecycle.name": "my-policy"
+     }
+  }
+}
+
+PUT _data_stream/audit-something
+GET _data_stream/audit-something
+
+POST audit-something/_doc
+{
+  "hello": "world3",
+  "@timestamp": "2099-07-06T16:21:15.000Z"
+}
+```
+</details>
+
 
 # Other actions
 
